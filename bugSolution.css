@@ -1,0 +1,24 @@
+To avoid the unexpected behavior shown in `bug.css`, it's best to write your CSS in a way that makes the precedence clear.
+
+Here's how you might rewrite the CSS in `bugSolution.css` to improve readability and avoid potential confusion:
+
+```css
+/* Using more descriptive selectors to avoid unexpected specificity collisions */
+#very-special .special div {
+  color: purple; /* This is the desired style; made explicit */
+}
+
+div {
+  color: blue; /* Fallback color */
+}
+
+.special div {
+  color: red; /* Less specific rules will be overridden correctly */
+}
+
+#very-special div {
+  color: green; /* Less specific rule will be overridden correctly */
+}
+```
+
+By writing your selectors in order of specificity, from most specific to least specific, you improve the readability of the file and ensure that the behavior is exactly as intended. The most specific selector will always take precedence.
