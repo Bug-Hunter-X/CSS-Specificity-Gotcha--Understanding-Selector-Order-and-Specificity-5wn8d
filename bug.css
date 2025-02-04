@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.special div {
+  color: red;
+}
+
+#very-special div {
+  color: green;
+}
+
+#very-special .special div {
+  color: purple;
+}
+```
+
+The issue lies in understanding how the browser resolves conflicting styles. While seemingly straightforward, the order of selectors and their specificity can lead to unexpected results.  The last rule, `#very-special .special div`, will override all others. However,  it might be less intuitive that the order of the selectors does not affect specificity in this case. This behavior is common to all CSS engines.
